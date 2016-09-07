@@ -1,0 +1,58 @@
+@CHARSET "UTF-8";
+
+.ui-layout-north {
+	z-index: 11 !important;
+	overflow: visible !important;
+	border: none !important;
+}
+
+.semBorda tr, .semBorda td {
+	border: none !important;
+}
+
+.ui-layout-west {
+	border: none !important;
+}
+
+.ui-layout-north .ui-layout-unit-content {
+	overflow: visible !important;
+}
+
+.ui-layout-center {
+	
+}
+
+.ui-widget, .ui-widget .ui-widget {
+	font-size: 13px !important;
+}
+
+.ui-layout-center .ui-layout-unit-content {
+	border: none !important;
+}
+
+.ui-layout-unit-content {
+	
+}
+
+.ui-panelgrid, .ui-panelgrid td, .ui-panelgrid tr {
+	border-style: none !important
+}
+
+.ui-widget, .ui-datatable, .ui-datatable-empty-message, span, label {
+	font-size: 12px !important;
+}
+
+/* .ui-datatable .ui-datatable-data .even-row td {
+	background-color: #EEDD82;
+}
+
+.ui-datatable .ui-datatable-data .odd-row td {
+	background-color: #FFFACD;
+} */
+
+.ui-datatable .ui-datatable-data .ui-datatable-odd td{  
+	background-color: #FFFFFF;
+}
+.ui-datatable .ui-datatable-data .ui-datatable-even td{  
+	background-color: #F2F5F9;
+}

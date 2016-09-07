@@ -13,7 +13,7 @@ public class EntityManagerProducer {
 	private EntityManagerFactory factory;
 	
 	public EntityManagerProducer() {
-		this.factory = Persistence.createEntityManagerFactory("DW_CadEmpresas_MavenPrimefacesJPA");
+		this.factory = Persistence.createEntityManagerFactory("pitdog");
 	}
 	
 	@Produces
@@ -27,10 +27,3 @@ public class EntityManagerProducer {
 	}
 }
 
-/*
-  Um método produtor gera um objeto que pode ser injetado. São úteis
-  quando queremos injetar um objeto que não é propriamente um bean.
-  Note que esta classe não é explicitamente referenciada no projeto,
-  mas somente EntityManager que é injetado em várias classes.
-   
-*/
