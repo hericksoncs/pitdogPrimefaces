@@ -21,7 +21,7 @@ public class Empresas implements Serializable {
 	
 	public List<Empresa> todas() {
 		return manager.createQuery("from Empresa", Empresa.class).getResultList();
-	}jkhjhjh
+	}
 	
 	public Empresa guardar(Empresa empresa) {
 		return manager.merge(empresa);
