@@ -7,64 +7,67 @@
 
 <ui:composition template="/templates/layout.xhtml">
 	<ui:define name="conteudo">
-		<p:panel header="Cadastro de produto" style="width:500px; margin-left:auto; margin-right:auto;">
+		<p:panel header="Cadastro de produto"
+			style="width:600px; margin-left:auto; margin-right:auto;">
 			<h:form>
-				<h:panelGrid columns="2">
-					<h:panelGrid columns="1">
-						<h:panelGrid columns="4">
-							<p:outputLabel value="Produto" />
-							<p:selectBooleanCheckbox value="true" />
 
-							<p:outputLabel value="Insumo" />
-							<p:selectBooleanCheckbox />
+				<p:tabView>
+					<p:tab title="Dados gerais">
+						<h:panelGrid columns="1">
+							<h:panelGrid columns="4">
+								<p:outputLabel value="Produto" />
+								<p:selectBooleanCheckbox value="true" />
+
+								<p:outputLabel value="Insumo" />
+								<p:selectBooleanCheckbox />
+							</h:panelGrid>
+
+							<br></br>
+
+							<h:panelGrid columns="2">
+								<p:outputLabel value="Código" />
+								<p:inputText style="width: 50px;" />
+
+								<p:outputLabel value="Nome" />
+								<p:inputText style="width: 200px;" />
+
+								<p:outputLabel value="Categoria" />
+								<p:selectOneMenu style="width:172px">
+									<f:selectItem itemLabel="Selecione" itemValue="6" />
+									<f:selectItem itemLabel="Sanduiche" itemValue="1" />
+									<f:selectItem itemLabel="Sucos" itemValue="2" />
+									<f:selectItem itemLabel="Refrigerantes" itemValue="3" />
+									<f:selectItem itemLabel="Ingredientes" itemValue="4" />
+								</p:selectOneMenu>
+
+								<p:outputLabel value="Fabricante" />
+								<p:selectOneMenu style="width:172px">
+									<f:selectItem itemLabel="Selecione" itemValue="4" />
+									<f:selectItem itemLabel="Del-Valle" itemValue="1" />
+									<f:selectItem itemLabel="Cola cola" itemValue="2" />
+									<f:selectItem itemLabel="Sadia" itemValue="3" />
+								</p:selectOneMenu>
+
+							</h:panelGrid>
+
+							<br></br>
+
+							<h:form>
+								<p:commandButton value="Adicionar" icon="ui-icon-circle-plus" />
+							</h:form>
+
 						</h:panelGrid>
-
-						<br></br>
-
-						<h:panelGrid columns="2">
-							<p:outputLabel value="Código" />
-							<p:inputText style="width: 50px;" />
-
-							<p:outputLabel value="Nome" />
-							<p:inputText style="width: 200px;" />
-
-							<p:outputLabel value="Categoria" />
-							<p:selectOneMenu style="width:172px">
-								<f:selectItem itemLabel="Selecione" itemValue="6" />
-								<f:selectItem itemLabel="Sanduiche" itemValue="1" />
-								<f:selectItem itemLabel="Sucos" itemValue="2" />
-								<f:selectItem itemLabel="Refrigerantes" itemValue="3" />
-								<f:selectItem itemLabel="Ingredientes" itemValue="4" />
-							</p:selectOneMenu>
-
-							<p:outputLabel value="Fabricante" />
-							<p:selectOneMenu style="width:172px">
-								<f:selectItem itemLabel="Selecione" itemValue="4" />
-								<f:selectItem itemLabel="Del-Valle" itemValue="1" />
-								<f:selectItem itemLabel="Cola cola" itemValue="2" />
-								<f:selectItem itemLabel="Sadia" itemValue="3" />
-							</p:selectOneMenu>
+					</p:tab>
+					<p:tab title="Imagens">
+						<h:panelGrid columns="1">
+							<p:fileUpload  mode="advanced" dragDropSupport="true"
+						                          update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
+						 
+						    <p:growl id="messages" showDetail="true" />
 
 						</h:panelGrid>
-
-						<br></br>
-						
-						<h:form>
-							<p:commandButton value="Adicionar" icon="ui-icon-circle-plus"/>
-						</h:form>
-
-					</h:panelGrid>
-
-					<h:panelGrid columns="1">
-						<p:graphicImage library="img" name="product-icon.png" />
-						
-						<h:form>
-							<p:fileUpload mode="simple" skinSimple="true" label="Procurar"/>
-						</h:form>
-						
-					</h:panelGrid>
-
-				</h:panelGrid>
+					</p:tab>
+				</p:tabView>
 
 			</h:form>
 		</p:panel>
@@ -90,8 +93,8 @@
 
 				<f:facet name="footer">
 					<h:form>
-						<p:commandButton value="Salvar" icon="ui-icon-disk"/>
-						<p:commandButton value="Composição" icon="ui-icon-clipboard"/>
+						<p:commandButton value="Salvar" icon="ui-icon-disk" />
+						<p:commandButton value="Composição" icon="ui-icon-clipboard" />
 					</h:form>
 				</f:facet>
 
