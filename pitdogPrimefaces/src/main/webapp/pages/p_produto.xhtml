@@ -9,9 +9,9 @@
 	<ui:define name="conteudo">
 		<p:panel header="Cadastro de produto"
 			style="width:600px; margin-left:auto; margin-right:auto;">
-			<h:form>
+			<h:form id="formProduto">
 
-				<p:tabView>
+				<p:tabView id="tab">
 					<p:tab title="Dados gerais">
 						<h:panelGrid columns="1">
 							<h:panelGrid columns="4">
@@ -22,13 +22,11 @@
 								<p:selectBooleanCheckbox />
 							</h:panelGrid>
 
-							<br></br>
-
-							<h:panelGrid columns="2">
+							<h:panelGrid columns="4">
 								<p:outputLabel value="Código" />
-								<p:inputText style="width: 50px;" />
+								<p:inputText style="width: 200px;" />
 
-								<p:outputLabel value="Nome" />
+								<p:outputLabel value="Descrição" />
 								<p:inputText style="width: 200px;" />
 
 								<p:outputLabel value="Categoria" />
@@ -58,12 +56,13 @@
 
 						</h:panelGrid>
 					</p:tab>
-					<p:tab title="Imagens">
+					<p:tab title="Imagens" id="tabImagens">
 						<h:panelGrid columns="1">
-							<p:fileUpload  mode="advanced" dragDropSupport="true"
-						                          update="messages" sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/" />
-						 
-						    <p:growl id="messages" showDetail="true" />
+							<p:fileUpload mode="advanced" dragDropSupport="true"
+								sizeLimit="100000" allowTypes="/(\.|\/)(gif|jpe?g|png)$/"
+								label="Procurar" cancelLabel="Cancelar"
+								invalidFileMessage="Arquivo inválido, só é permitido os tipos: 'GIF, JPE, JPEG e PNG', você selecionou: "
+								invalidSizeMessage="Tamanho inválido" />
 
 						</h:panelGrid>
 					</p:tab>
@@ -94,12 +93,72 @@
 				<f:facet name="footer">
 					<h:form>
 						<p:commandButton value="Salvar" icon="ui-icon-disk" />
-						<p:commandButton value="Composição" icon="ui-icon-clipboard" />
+						<p:commandButton value="Composição" icon="ui-icon-clipboard"
+							oncomplete="PF('dialogComposicao').show();" />
 					</h:form>
 				</f:facet>
 
 			</p:dataTable>
 		</p:panel>
+
+		<p:dialog header="Cadastro de composição" widgetVar="dialogComposicao"
+			modal="true" appendTo="@(body)" resizable="false">
+			<h:form>
+
+				<h:panelGrid columns="4">
+					<p:outputLabel value="Código" styleClass="customOutPutLabel"/>
+					<p:outputLabel value="1" />
+
+					<p:outputLabel value="Produto" />
+					<p:outputLabel value="X-Tudo" />
+				</h:panelGrid>
+
+				<h:panelGrid columns="9">
+
+					<p:outputLabel value="Insumos" />
+					<p:selectOneMenu style="width:350px">
+						<f:selectItem itemLabel="Salsicha" itemValue="1" />
+					</p:selectOneMenu>
+
+					<p:outputLabel value="Qtde" />
+					<p:inputText style="width: 50px;"/>
+
+					<h:form>
+						<p:commandButton value="Adicionar" icon="ui-icon-circle-plus" />
+					</h:form>
+
+				</h:panelGrid>
+
+			</h:form>
+
+			<p:dataTable var="comp" paginator="true" paginatorPosition="bottom"
+				emptyMessage="Nenhum registro encontrado!" rows="4"
+				style="width: 700px;">
+				<p:column headerText="Código" width="50">
+					<p:outputLabel />
+				</p:column>
+
+				<p:column headerText="Nome">
+					<p:outputLabel />
+				</p:column>
+
+				<p:column headerText="Qtde" width="50">
+					<p:outputLabel />
+				</p:column>
+
+				<p:column headerText="Fabricante">
+					<p:outputLabel />
+				</p:column>
+
+				<f:facet name="footer">
+					<h:form>
+						<p:commandButton value="Salvar" icon="ui-icon-disk" />
+					</h:form>
+				</f:facet>
+
+			</p:dataTable>
+
+		</p:dialog>
 
 	</ui:define>
 </ui:composition>
