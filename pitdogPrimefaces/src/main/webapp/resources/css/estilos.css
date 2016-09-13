@@ -22,6 +22,10 @@
 	
 }
 
+ul.ui-menu-child {
+	width: 250px !important;
+}
+
 .ui-widget, .ui-widget .ui-widget {
 	font-size: 13px !important;
 }
@@ -49,10 +53,10 @@
 .ui-datatable .ui-datatable-data .odd-row td {
 	background-color: #FFFACD;
 } */
-
-.ui-datatable .ui-datatable-data .ui-datatable-odd td{  
+.ui-datatable .ui-datatable-data .ui-datatable-odd td {
 	background-color: #FFFFFF;
 }
-.ui-datatable .ui-datatable-data .ui-datatable-even td{  
+
+.ui-datatable .ui-datatable-data .ui-datatable-even td {
 	background-color: #F2F5F9;
 }

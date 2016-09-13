@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/layout.xhtml">
+	<ui:define name="conteudo">
+		<p:panel header="Cadastro de produto" style="width:500px; margin-left:auto; margin-right:auto;">
+			<h:form>
+				<h:panelGrid columns="2">
+					<h:panelGrid columns="1">
+						<h:panelGrid columns="4">
+							<p:outputLabel value="Produto" />
+							<p:selectBooleanCheckbox value="true" />
+
+							<p:outputLabel value="Insumo" />
+							<p:selectBooleanCheckbox />
+						</h:panelGrid>
+
+						<br></br>
+
+						<h:panelGrid columns="2">
+							<p:outputLabel value="Código" />
+							<p:inputText style="width: 50px;" />
+
+							<p:outputLabel value="Nome" />
+							<p:inputText style="width: 200px;" />
+
+							<p:outputLabel value="Categoria" />
+							<p:selectOneMenu style="width:172px">
+								<f:selectItem itemLabel="Selecione" itemValue="6" />
+								<f:selectItem itemLabel="Sanduiche" itemValue="1" />
+								<f:selectItem itemLabel="Sucos" itemValue="2" />
+								<f:selectItem itemLabel="Refrigerantes" itemValue="3" />
+								<f:selectItem itemLabel="Ingredientes" itemValue="4" />
+							</p:selectOneMenu>
+
+							<p:outputLabel value="Fabricante" />
+							<p:selectOneMenu style="width:172px">
+								<f:selectItem itemLabel="Selecione" itemValue="4" />
+								<f:selectItem itemLabel="Del-Valle" itemValue="1" />
+								<f:selectItem itemLabel="Cola cola" itemValue="2" />
+								<f:selectItem itemLabel="Sadia" itemValue="3" />
+							</p:selectOneMenu>
+
+						</h:panelGrid>
+
+						<br></br>
+						
+						<h:form>
+							<p:commandButton value="Adicionar" icon="ui-icon-circle-plus"/>
+						</h:form>
+
+					</h:panelGrid>
+
+					<h:panelGrid columns="1">
+						<p:graphicImage library="img" name="product-icon.png" />
+						
+						<h:form>
+							<p:fileUpload mode="simple" skinSimple="true" label="Procurar"/>
+						</h:form>
+						
+					</h:panelGrid>
+
+				</h:panelGrid>
+
+			</h:form>
+		</p:panel>
+
+		<p:panel>
+			<p:dataTable var="prod" paginator="true" paginatorPosition="bottom"
+				emptyMessage="Nenhum registro encontrado!" rows="4">
+				<p:column headerText="Código" width="50">
+					<p:outputLabel />
+				</p:column>
+
+				<p:column headerText="Nome">
+					<p:outputLabel />
+				</p:column>
+
+				<p:column headerText="Categoria">
+					<p:outputLabel />
+				</p:column>
+
+				<p:column headerText="Fabricante">
+					<p:outputLabel />
+				</p:column>
+
+				<f:facet name="footer">
+					<h:form>
+						<p:commandButton value="Salvar" icon="ui-icon-disk"/>
+						<p:commandButton value="Composição" icon="ui-icon-clipboard"/>
+					</h:form>
+				</f:facet>
+
+			</p:dataTable>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
+</html>
