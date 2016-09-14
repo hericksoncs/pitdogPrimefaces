@@ -5,6 +5,7 @@
 	
 	<persistence-unit name="pitdog" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<!-- <class>br.com.pitdog.primefaces.domain.GenericDomain</class> -->
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pitdog" />
 			<property name="javax.persistence.jdbc.user" value="root" />

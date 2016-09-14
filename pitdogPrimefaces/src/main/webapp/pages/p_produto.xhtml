@@ -72,33 +72,45 @@
 		</p:panel>
 
 		<p:panel>
-			<p:dataTable var="prod" paginator="true" paginatorPosition="bottom"
-				emptyMessage="Nenhum registro encontrado!" rows="4">
-				<p:column headerText="Código" width="50">
-					<p:outputLabel />
-				</p:column>
+			<h:form>
+				<p:dataTable var="prod" paginator="true" paginatorPosition="bottom"
+					emptyMessage="Nenhum registro encontrado!" rows="4"
+					value="#{produtoController.listarProdutos}">
+					<p:column headerText="Código" width="50">
+						<p:outputLabel value="#{prod.codigo}" />
+					</p:column>
 
-				<p:column headerText="Nome">
-					<p:outputLabel />
-				</p:column>
+					<p:column headerText="Nome">
+						<p:outputLabel value="#{prod.descricao}" />
+					</p:column>
 
-				<p:column headerText="Categoria">
-					<p:outputLabel />
-				</p:column>
+					<p:column headerText="Categoria">
+						<p:outputLabel value="#{prod.categoria}" />
+					</p:column>
 
-				<p:column headerText="Fabricante">
-					<p:outputLabel />
-				</p:column>
+					<p:column headerText="Fabricante">
+						<p:outputLabel value="#{prod.fabricante}" />
+					</p:column>
 
-				<f:facet name="footer">
-					<h:form>
-						<p:commandButton value="Salvar" icon="ui-icon-disk" />
-						<p:commandButton value="Composição" icon="ui-icon-clipboard"
-							oncomplete="PF('dialogComposicao').show();" />
-					</h:form>
-				</f:facet>
+					<p:column>
+						<p:commandButton icon="ui-icon-trash" id="excluir"/>
+						<p:commandButton icon="ui-icon-pencil" id="editar"/>
+						<p:commandButton icon="ui-icon-clipboard" oncomplete="PF('dialogComposicao').show();" id="compositon"/>
+						<p:tooltip id="toolTipFade1" for="excluir" value="Excluir" position="top"/>
+						<p:tooltip id="toolTipFade2" for="editar" value="Editar" position="top"/>
+						<p:tooltip id="toolTipFade3" for="compositon" value="Composição" position="top"/>
+					</p:column>
+					
 
-			</p:dataTable>
+					<f:facet name="footer">
+						<h:form>
+							<p:commandButton value="Salvar" icon="ui-icon-disk" />
+						</h:form>
+					</f:facet>
+					
+
+				</p:dataTable>
+			</h:form>
 		</p:panel>
 
 		<p:dialog header="Cadastro de composição" widgetVar="dialogComposicao"
@@ -106,13 +118,17 @@
 			<h:form>
 
 				<h:panelGrid columns="4">
-					<p:outputLabel value="Código:" style="font-weight:bold"/>
-					<h:inputText value="1" style="font-weight:bold; width: 50px; color:black;" disabled="true"/>
+					<p:outputLabel value="Código:" style="font-weight:bold" />
+					<h:inputText value="1"
+						style="font-weight:bold; width: 50px; color:black;"
+						disabled="true" />
 
-					<p:outputLabel value="Produto:" style="font-weight:bold"/>
-					<h:inputText value="X-Tudo" style="font-weight:bold; color:black; width: 530px;" disabled="true"/>
+					<p:outputLabel value="Produto:" style="font-weight:bold" />
+					<h:inputText value="X-Tudo"
+						style="font-weight:bold; color:black; width: 530px;"
+						disabled="true" />
 				</h:panelGrid>
-				
+
 				<br></br>
 
 				<h:panelGrid columns="9">
@@ -123,7 +139,7 @@
 					</p:selectOneMenu>
 
 					<p:outputLabel value="Qtde" />
-					<p:inputText style="width: 50px;"/>
+					<p:inputText style="width: 50px;" />
 
 					<h:form>
 						<p:commandButton value="Adicionar" icon="ui-icon-circle-plus" />
