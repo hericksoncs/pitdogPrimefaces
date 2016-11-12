@@ -5,7 +5,13 @@
 	
 	<persistence-unit name="pitdog" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<!-- <class>br.com.pitdog.primefaces.domain.GenericDomain</class> -->
+		
+		<class>br.com.pitdog.primefaces.model.GenericDomain</class>
+		<class>br.com.pitdog.primefaces.model.Produto</class>
+		<class>br.com.pitdog.primefaces.model.Categoria</class>
+		<class>br.com.pitdog.primefaces.model.Fabricante</class>
+		<class>br.com.pitdog.primefaces.model.Composicao</class>
+		
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/pitdog" />
 			<property name="javax.persistence.jdbc.user" value="root" />

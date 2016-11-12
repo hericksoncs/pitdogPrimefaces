@@ -20,8 +20,8 @@
 				<p:menubar>
 					<p:submenu label="Cadastros" icon="ui-icon-document">
 						<p:submenu label="Estoque" icon="ui-icon-contact">
-							<p:menuitem value="Produto" outcome="/pages/p_produto.xhtml"/>
-							<p:menuitem value="Fabricante" url="#" />
+							<p:menuitem value="Produto" actionListener="#{templateViewPage.openDialog('/pages/p_produto.xhtml')}" update="@none" process="@this"/>
+							<p:menuitem value="Fabricante" actionListener="#{templateViewPage.openDialog('/pages/p_fabricante.xhtml')}"  update="@none" process="@this"/>
 						</p:submenu>
 						<p:submenu label="R.H" icon="ui-icon-contact">
 							<p:menuitem value="Funcionário" url="#" />
@@ -77,7 +77,7 @@
 		</p:layoutUnit>
 
 		<p:layoutUnit position="center">
-			<ui:insert name="conteudo" />
+		
 		</p:layoutUnit>
 
 		<p:layoutUnit position="south" size="50">

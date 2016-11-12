@@ -1,11 +1,19 @@
-package br.com.pitdog.primefaces.domain;
+package br.com.pitdog.primefaces.model;
 
 import java.io.Serializable;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
+
+@MappedSuperclass
 public class GenericDomain implements Serializable{
 
 	private static final long serialVersionUID = -8678526960413727632L;
 	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
 	public Long getId() {
