@@ -1,0 +1,24 @@
+@CHARSET "UTF-8";
+
+#dialog-panel-1 {
+	width: 650px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.dialog-panelgrid-1-outputLabel {
+	font-weight: bold;
+}
+
+.dialog-panelgrid-1 {
+	width: 100px;
+	font-weight: bold;
+	color: blue;
+	opacity: 100;
+}
+
+.dialog-panelgrid-1-inputtext {
+	font-weight: bold;
+	color: black !important;
+	width: 630px;
+}
