@@ -1,4 +1,4 @@
-package br.com.pitdog.primefaces.model;
+package br.com.pitdog.dao.infraestrutura;
 
 import java.io.Serializable;
 

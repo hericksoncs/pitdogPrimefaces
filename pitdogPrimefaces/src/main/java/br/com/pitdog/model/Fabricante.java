@@ -1,8 +1,12 @@
-package br.com.pitdog.primefaces.model;
+package br.com.pitdog.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
+import br.com.pitdog.dao.infraestrutura.GenericDomain;
 
 @Entity
 @Table(name = "tbl_fabricante")
@@ -14,9 +18,11 @@ public class Fabricante extends GenericDomain {
 	private Long codigo;
 
 	@Column(name = "fabr_cnpj")
+	@NotEmpty(message = "O CNPJ é obrigatório!")
 	private String CNPJ;
 
 	@Column(name = "fabr_razao_social")
+	@NotEmpty(message = "A Razão Social é obrigatório!")
 	private String razaoSocial;
 
 	public Long getCodigo() {

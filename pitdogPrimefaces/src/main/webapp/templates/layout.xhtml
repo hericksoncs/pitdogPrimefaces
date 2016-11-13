@@ -16,12 +16,12 @@
 		<p:growl id="msgGlobal" life="5000" />
 
 		<p:layoutUnit position="north">
-			<h:form>
+			<h:form id="app">
 				<p:menubar>
 					<p:submenu label="Cadastros" icon="ui-icon-document">
 						<p:submenu label="Estoque" icon="ui-icon-contact">
-							<p:menuitem value="Produto" actionListener="#{templateViewPage.openDialog('/pages/p_produto.xhtml')}" update="@none" process="@this"/>
-							<p:menuitem value="Fabricante" actionListener="#{templateViewPage.openDialog('/pages/p_fabricante.xhtml')}"  update="@none" process="@this"/>
+							<p:menuitem value="Produto" actionListener="#{templateViewPage.openDialog('/pages/p_produto.xhtml', 'idTitleProduto')}" update="@none" process="@this"/>
+							<p:menuitem value="Fabricante" actionListener="#{templateViewPage.openDialog('/pages/p_fabricante.xhtml', 'idTitleFabricante')}"  update="@none" process="@this"/>
 						</p:submenu>
 						<p:submenu label="R.H" icon="ui-icon-contact">
 							<p:menuitem value="Funcionário" url="#" />

@@ -1,4 +1,4 @@
-package br.com.pitdog.primefaces.model.type;
+package br.com.pitdog.model.type;
 
 public enum Tipo {
 

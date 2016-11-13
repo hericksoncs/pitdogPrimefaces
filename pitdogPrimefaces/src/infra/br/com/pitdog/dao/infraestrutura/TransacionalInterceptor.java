@@ -1,4 +1,4 @@
-package br.com.pitdog.primefaces.util;
+package br.com.pitdog.dao.infraestrutura;
 
 import java.io.Serializable;
 
@@ -26,8 +26,6 @@ public class TransacionalInterceptor implements Serializable {
 
 		try {
 			if (!trx.isActive()) {
-				// Truque para fazer rollback no que já passou, senão um
-				// futuro commit poderia confirmar operações sem transação
 				trx.begin();
 				trx.rollback();
 

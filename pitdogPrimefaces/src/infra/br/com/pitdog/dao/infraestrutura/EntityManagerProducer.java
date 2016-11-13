@@ -1,4 +1,4 @@
-package br.com.pitdog.primefaces.util;
+package br.com.pitdog.dao.infraestrutura;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;

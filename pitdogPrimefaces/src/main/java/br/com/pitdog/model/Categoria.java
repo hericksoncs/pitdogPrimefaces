@@ -1,8 +1,10 @@
-package br.com.pitdog.primefaces.model;
+package br.com.pitdog.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
+import br.com.pitdog.dao.infraestrutura.GenericDomain;
 
 @Entity
 @Table(name = "tbl_categoria")

@@ -1,4 +1,4 @@
-package br.com.pitdog.primefaces.model;
+package br.com.pitdog.model;
 
 
 import javax.persistence.Column;
@@ -9,7 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import br.com.pitdog.primefaces.model.type.Tipo;
+import br.com.pitdog.dao.infraestrutura.GenericDomain;
+import br.com.pitdog.model.type.Tipo;
 
 @Entity
 @Table(name = "tbl_produto")

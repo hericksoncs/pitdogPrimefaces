@@ -11,7 +11,9 @@
 	<h:outputStylesheet library="css" name="allstyle.css" />
 </h:head>
 <h:body>
-	<p:panel header="Listagem de produtos" style="height: 95%;">
+	<p:panel style="height: 95%;">
+	  <p:outputLabel id="idTitleProduto" value="Listagem de produtos"/>
+			
 		<h:form>
 			<p:dataTable var="prod" paginator="true" paginatorPosition="bottom"
 				emptyMessage="Nenhum registro encontrado!" rows="4"
@@ -126,6 +128,7 @@
 			</h:form>
 			<h:form>
 				<p:commandButton value="Salvar" icon="ui-icon-disk" />
+				<p:commandButton value="Cancelar" icon="ui-icon-close" oncomplete="PF('novo-produto').hide();"/>
 			</h:form>
 		</p:panel>
 	</p:dialog>

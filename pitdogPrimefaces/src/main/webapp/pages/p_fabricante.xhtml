@@ -12,9 +12,13 @@
 </h:head>
 <h:body>
 
-	<p:panel header="Listagem de Fabricantes" style="height: 95%;">
+	<p:panel style="height: 95%;">
+	
+		<p:growl id="msgGlobal" life="5000" />
+	
+		<p:outputLabel id="idTitleFabricante" value="Listagem de Fabricantes"/>
+		
 		<h:form>
-
 			<br></br>
 
 			<p:panelGrid>
@@ -50,7 +54,7 @@
 				<f:facet name="footer">
 					<h:form>
 						<p:commandButton value="Novo Fabricante" icon="ui-icon-disk"
-							oncomplete="PF('novo-fabricante').show();" />
+							oncomplete="PF('novo-fabricante').show();" actionListener="#{fabricanteController.novo()}"/>
 					</h:form>
 				</f:facet>
 
@@ -73,18 +77,16 @@
 				<p:panelGrid columns="2">
 
 					<p:outputLabel value="Razão Social" />
-					<p:inputText style="width: 550px"/>
+					<p:inputText style="width: 550px" value="#{fabricanteController.fabricante.razaoSocial}"/>
 					
 					<p:outputLabel value="CNPJ" />
-					<p:inputMask mask="99.999.999/9999-99"/>
+					<p:inputMask mask="99.999.999/9999-99" value="#{fabricanteController.fabricante.CNPJ}"/>
 
 				</p:panelGrid>
 
-			</h:form>
-
-			<h:form>
-				<p:commandButton value="Salvar" icon="ui-icon-disk" />
+				<p:commandButton value="Salvar" icon="ui-icon-disk" actionListener="#{fabricanteController.salvar()}" update=":msgGlobal"/>
 				<p:commandButton value="Cancelar" icon="ui-icon-close" oncomplete="PF('novo-fabricante').hide();"/>
+			
 			</h:form>
 
 		</p:panel>

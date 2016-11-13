@@ -1,4 +1,4 @@
-package br.com.pitdog.primefaces.model;
+package br.com.pitdog.model;
 
 import java.util.List;
 
@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import br.com.pitdog.dao.infraestrutura.GenericDomain;
 
 @Entity
 @Table(name = "tbl_composicao")
