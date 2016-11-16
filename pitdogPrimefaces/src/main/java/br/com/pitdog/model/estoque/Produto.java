@@ -1,4 +1,4 @@
-package br.com.pitdog.model;
+package br.com.pitdog.model.estoque;
 
 
 import javax.persistence.Column;
@@ -10,6 +10,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import br.com.pitdog.dao.infraestrutura.GenericDomain;
+import br.com.pitdog.model.Categoria;
+import br.com.pitdog.model.Composicao;
 import br.com.pitdog.model.type.Tipo;
 
 @Entity

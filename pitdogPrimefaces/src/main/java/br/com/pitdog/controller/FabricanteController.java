@@ -2,31 +2,29 @@ package br.com.pitdog.controller;
 
 import java.io.Serializable;
 
-import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-import br.com.pitdog.business.FabricanteBusiness;
-import br.com.pitdog.model.Fabricante;
+import br.com.pitdog.model.estoque.Fabricante;
+import br.com.pitdog.service.impl.FabricanteService;
 import br.com.pitdog.util.FacesUtil;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class FabricanteController implements Serializable{
 
 	private static final long serialVersionUID = -184364650177519849L;
 	
-	private FabricanteBusiness fabricanteBusiness;
-	
+	@Inject
 	private Fabricante fabricante;
 	
-	public void novo(){
-		fabricante = new Fabricante();
-		fabricanteBusiness = new FabricanteBusiness();
-	}
+	@Inject
+	private FabricanteService fabricanteService;
 	
 	public void salvar(){
 		try {
-			fabricanteBusiness.salvar(fabricante);
+			fabricanteService.salvar(fabricante);
 			FacesUtil.mensagemInfo("Fabricante salvo com sucesso!");
 		} catch (RuntimeException e) {
 			FacesUtil.mensagemErro(e.getMessage());
@@ -40,7 +38,5 @@ public class FabricanteController implements Serializable{
 	public void setFabricante(Fabricante fabricante) {
 		this.fabricante = fabricante;
 	}
-	
-	
 
 }

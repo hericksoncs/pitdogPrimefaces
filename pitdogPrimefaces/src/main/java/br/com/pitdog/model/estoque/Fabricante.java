@@ -1,4 +1,4 @@
-package br.com.pitdog.model;
+package br.com.pitdog.model.estoque;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

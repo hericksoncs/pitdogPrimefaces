@@ -9,6 +9,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import br.com.pitdog.dao.infraestrutura.GenericDomain;
+import br.com.pitdog.model.estoque.Produto;
 
 @Entity
 @Table(name = "tbl_composicao")

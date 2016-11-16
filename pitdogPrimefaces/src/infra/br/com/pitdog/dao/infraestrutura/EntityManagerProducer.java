@@ -13,7 +13,7 @@ public class EntityManagerProducer {
 	private EntityManagerFactory factory;
 	
 	public EntityManagerProducer() {
-		this.factory = Persistence.createEntityManagerFactory("pitdog");
+		this.factory = Persistence.createEntityManagerFactory("pitdog-unit");
 	}
 	
 	@Produces
@@ -26,4 +26,3 @@ public class EntityManagerProducer {
 		manager.close();
 	}
 }
-

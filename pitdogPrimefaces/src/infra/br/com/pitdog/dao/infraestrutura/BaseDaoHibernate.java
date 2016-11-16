@@ -2,28 +2,32 @@ package br.com.pitdog.dao.infraestrutura;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
+import java.util.Map;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceContextType;
 import javax.persistence.criteria.CriteriaQuery;
-import javax.transaction.Transactional;
 
 /**
- * @author Felipe M.d. Santos
- * @version 1.0
- * */
+ * 
+ * @author Felipe Miguel dos Santos
+ *
+ * @param <E> -> Entidade
+ * @param <I> -> Identificador
+ */
 
 @Named
 public class BaseDaoHibernate<E, I> implements BaseDao<E, I> {
 
-	private static final long serialVersionUID = 4946753559639966343L;
+	private static final long serialVersionUID = 7317998972296404455L;
 
 	private Class<E> entityClass;
 
 	@Inject
-	@PersistenceContext
+	@PersistenceContext(type = PersistenceContextType.EXTENDED)
 	private EntityManager manager;
 	
 	@SuppressWarnings({ "unchecked"})
@@ -39,7 +43,6 @@ public class BaseDaoHibernate<E, I> implements BaseDao<E, I> {
 	}
 
 	@Override
-	@Transactional
 	public void save(E entity) {
 		try {
 			manager.merge(entity);
@@ -49,11 +52,10 @@ public class BaseDaoHibernate<E, I> implements BaseDao<E, I> {
 	}
 
 	@Override
-	@Transactional
 	public void remove(I id) {
 		try {
-			E object = findById(id);
-			manager.remove(object);
+			E objeto = findById(id);
+			manager.remove(objeto);
 		} catch (RuntimeException e) {
 			throw e;
 		}
@@ -77,5 +79,14 @@ public class BaseDaoHibernate<E, I> implements BaseDao<E, I> {
 		} catch (RuntimeException e) {
 			throw e;
 		}
+	}
+
+	@Override
+	public List<E> findByParam(String query, Map<String, Object> params) {
+		/*Query q = manager.createQuery(query);
+		for(String key : params.keySet()){
+			q.setParameter(params.get(key), key);
+		}*/
+		return null;
 	}
 }

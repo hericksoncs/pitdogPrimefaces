@@ -54,7 +54,7 @@
 				<f:facet name="footer">
 					<h:form>
 						<p:commandButton value="Novo Fabricante" icon="ui-icon-disk"
-							oncomplete="PF('novo-fabricante').show();" actionListener="#{fabricanteController.novo()}"/>
+							oncomplete="PF('novo-fabricante').show();"/>
 					</h:form>
 				</f:facet>
 
@@ -64,14 +64,14 @@
 	</p:panel>
 
 	<!-- Novo Fabricante -->
-	<p:dialog appendTo="@(body)" closable="true" draggable="false"
+	<p:dialog id="dialogFabricanteNovo" appendTo="@(body)" closable="true" draggable="false"
 		resizable="false" header="Novo Fabricante" modal="true"
 		widgetVar="novo-fabricante" responsive="true" width="865"
 		showEffect="clip">
 
-		<p:panel id="dialog-panel-1" style="width: 800px;">
+		<p:panel id="dialogPanel" style="width: 800px;">
 
-			<p:focus context="dialog-panel-1" />
+			<p:focus context="dialogPanel" />
 
 			<h:form id="formProduto">
 				<p:panelGrid columns="2">
@@ -84,7 +84,7 @@
 
 				</p:panelGrid>
 
-				<p:commandButton value="Salvar" icon="ui-icon-disk" actionListener="#{fabricanteController.salvar()}" update=":msgGlobal"/>
+				<p:commandButton value="Salvar" icon="ui-icon-disk" actionListener="#{fabricanteController.salvar}" update=":msgGlobal" process="@form"/>
 				<p:commandButton value="Cancelar" icon="ui-icon-close" oncomplete="PF('novo-fabricante').hide();"/>
 			
 			</h:form>
