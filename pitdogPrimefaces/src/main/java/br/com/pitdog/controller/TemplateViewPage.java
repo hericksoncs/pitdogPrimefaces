@@ -7,7 +7,7 @@ import java.util.Map;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
-import org.primefaces.context.RequestContext;
+import br.com.pitdog.util.RequestContextUtil;
 
 @ManagedBean
 @RequestScoped
@@ -27,7 +27,7 @@ public class TemplateViewPage implements Serializable {
 		options.put("contentHeight", 400);
 		options.put("headerElement", headerElement);
 
-		RequestContext.getCurrentInstance().openDialog(view, options, null);
+		RequestContextUtil.openDialog(view, options, null);
 		
 		/* Esse bloco de código abaixo está em análise, não deve ser usado!
 			

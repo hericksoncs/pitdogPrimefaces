@@ -6,8 +6,10 @@ import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+
 import br.com.pitdog.model.estoque.Fabricante;
 import br.com.pitdog.service.impl.FabricanteService;
+import br.com.pitdog.util.RequestContextUtil;
 import br.com.pitdog.util.FacesUtil;
 
 @Named
@@ -26,6 +28,7 @@ public class FabricanteController implements Serializable{
 		try {
 			fabricanteService.salvar(fabricante);
 			FacesUtil.mensagemInfo("Fabricante salvo com sucesso!");
+			RequestContextUtil.execute("PF('novo-fabricante').hide();");
 		} catch (RuntimeException e) {
 			FacesUtil.mensagemErro(e.getMessage());
 		}
